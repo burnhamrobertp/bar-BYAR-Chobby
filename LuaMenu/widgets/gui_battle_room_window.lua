@@ -4276,6 +4276,10 @@ local function InitializeControls(battleID, oldLobby, topPoportion, setupData)
 	-- battleLobby:AddListener("OnMatchMakerReadyResult", OnMatchMakerReadyResult)
 	battleLobby:AddListener("OnRemoveStartRect", OnRemoveStartRect)
 	battleLobby:AddListener("OnAddStartRect", OnAddStartRect)
+	local currentBattle = battleLobby:GetBattle(battleID)
+	if currentBattle then
+		OnUpdateBattleInfo(nil, battleID, currentBattle)
+	end
 	battleLobby:AddListener("OnRing", OnRing)
 	battleLobby:AddListener("OnEnableAllUnits", OnEnableAllUnits)
 	battleLobby:AddListener("OnDisableUnits", OnDisableUnits)
